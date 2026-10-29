@@ -298,3 +298,34 @@ form_frame.columnconfigure(1, weight=1)
 
 button_frame = tk.Frame(root, bg="#f4f7fb")
 button_frame.pack(pady=16)
+
+ttk.Button(
+    button_frame, text="Predict & Save",
+    command=on_predict_and_save
+).grid(row=0, column=0, padx=5)
+
+ttk.Button(
+    button_frame, text="View Data",
+    command=view_data
+).grid(row=0, column=1, padx=5)
+
+ttk.Button(
+    button_frame, text="Clear Form",
+    command=clear_form
+).grid(row=0, column=2, padx=5)
+
+result_frame = tk.Frame(root, bg="white", padx=15, pady=14, bd=1, relief="solid")
+result_frame.pack(fill="x", padx=25, pady=(0, 12))
+
+tk.Label(
+    result_frame, text="Prediction Result",
+    font=("Arial", 12, "bold"), bg="white", fg="#17365d"
+).pack()
+
+result_label = tk.Label(
+    result_frame,
+    text="Prediction result will appear here.",
+    font=("Arial", 15, "bold"),
+    bg="white",
+    fg="#263238"
+)
