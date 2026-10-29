@@ -268,3 +268,33 @@ age_entry = None
 sugar_entry = None
 bmi_entry = None
 history_combo = None
+
+for row_index, (label_text, field_name) in enumerate(labels):
+    tk.Label(
+        form_frame, text=label_text, font=("Arial", 10),
+        bg="white", anchor="w", width=27
+    ).grid(row=row_index, column=0, sticky="w", padx=(0, 12), pady=8)
+
+    if field_name == "history":
+        history_combo = ttk.Combobox(
+            form_frame, values=("Yes", "No"),
+            state="readonly", width=27
+        )
+        history_combo.grid(row=row_index, column=1, sticky="ew", pady=8)
+    else:
+        entry = ttk.Entry(form_frame, width=30)
+        entry.grid(row=row_index, column=1, sticky="ew", pady=8)
+
+        if field_name == "name":
+            name_entry = entry
+        elif field_name == "age":
+            age_entry = entry
+        elif field_name == "sugar":
+            sugar_entry = entry
+        elif field_name == "bmi":
+            bmi_entry = entry
+
+form_frame.columnconfigure(1, weight=1)
+
+button_frame = tk.Frame(root, bg="#f4f7fb")
+button_frame.pack(pady=16)
