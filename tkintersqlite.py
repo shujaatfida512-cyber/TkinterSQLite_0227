@@ -41,3 +41,36 @@ def get_all_patients():
             FROM patients
             ORDER BY id DESC
         """).fetchall()
+
+def predict_risk(blood_sugar, bmi, parental_history):
+    """Simple educational rules; not a medical diagnosis."""
+    if blood_sugar >= 200:
+        if bmi >= 30 or parental_history == "Yes":
+            return "Very High"
+        return "High"
+
+    if 140 <= blood_sugar < 200:
+        if bmi >= 30 and parental_history == "Yes":
+            return "High"
+        return "Moderate"
+
+    if bmi >= 30:
+        if parental_history == "Yes":
+            return "Moderate"
+        return "Alert"
+
+    if parental_history == "Yes":
+        return "Caution"
+
+    return "Low"
+
+
+RISK_COLORS = {
+    "Low": "#2e7d32",
+    "Caution": "#558b2f",
+    "Alert": "#ef6c00",
+    "Moderate": "#f9a825",
+    "High": "#e65100",
+    "Very High": "#c62828",
+}
+
