@@ -225,3 +225,18 @@ def view_data():
 
     tk.Button(window, text="Close", command=window.destroy, width=12).pack(pady=8)
 
+init_db()
+
+root = tk.Tk()
+root.title("Diabetes Risk Prediction")
+root.geometry("620x570")
+root.minsize(580, 540)
+root.configure(bg="#f4f7fb")
+
+title_label = tk.Label(
+    root,
+    text="Diabetes Risk Prediction",
+    font=("Arial", 19, "bold"),
+    bg="#f4f7fb",
+    fg="#17365d"
+)
