@@ -240,3 +240,31 @@ title_label = tk.Label(
     bg="#f4f7fb",
     fg="#17365d"
 )
+
+title_label.pack(pady=(18, 4))
+
+subtitle_label = tk.Label(
+    root,
+    text="Enter patient information to generate an educational risk estimate",
+    font=("Arial", 9),
+    bg="#f4f7fb",
+    fg="#455a64"
+)
+subtitle_label.pack(pady=(0, 12))
+
+form_frame = tk.Frame(root, bg="white", padx=22, pady=18, bd=1, relief="solid")
+form_frame.pack(padx=25, fill="x")
+
+labels = [
+    ("Patient Name", "name"),
+    ("Age (years)", "age"),
+    ("Blood Sugar (mg/dL)", "sugar"),
+    ("BMI", "bmi"),
+    ("Parental History of Diabetes", "history"),
+]
+
+name_entry = None
+age_entry = None
+sugar_entry = None
+bmi_entry = None
+history_combo = None
