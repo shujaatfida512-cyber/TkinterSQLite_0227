@@ -329,3 +329,17 @@ result_label = tk.Label(
     bg="white",
     fg="#263238"
 )
+result_label.pack(pady=(8, 2))
+
+disclaimer = tk.Label(
+    root,
+    text="Educational demonstration only — not a diagnosis or substitute for medical advice.",
+    font=("Arial", 8),
+    bg="#f4f7fb",
+    fg="#6b3030",
+    wraplength=560
+)
+disclaimer.pack(pady=(0, 10))
+
+name_entry.focus_set()
+root.mainloop()
